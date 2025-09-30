@@ -15,7 +15,7 @@ failure_log_lock = Lock()
 
 
 def download_and_process(data, vid, num_videos, mode, output_root):
-    videoname = data.url.split("=")[-1]
+    videoname = os.path.join(output_root, data.url.split("=")[-1] + '.mp4')
     print(f"[INFO] Downloading {vid + 1}/{num_videos}: {videoname} ...")
     try:
         # pytube is unstable, use yt_dlp instead
@@ -34,14 +34,14 @@ def download_and_process(data, vid, num_videos, mode, output_root):
             failure_log.writelines(data.url + "\n")
             failure_log.close()
         return
-
+    """
     with Pool(processes=16) as pool:
         pool.map(
             wrap_process,
             [(data, seq_id, videoname, output_root) for seq_id in range(len(data))],
         )
     os.system("rm " + videoname)  # remove videos
-
+    """
 
 class Data:
     def __init__(self, url, seqname, list_timestamps):
@@ -123,10 +123,10 @@ class DataDownloader:
         print("[INFO] Loading data list ... ", end="")
         self.dataroot = dataroot
         self.list_seqnames = sorted(glob.glob(dataroot + "/*.txt"))
-        self.output_root = "./dataset/" + mode + "/"
+        self.output_root = "./videos/" + mode + "/"
         self.mode = mode
 
-        os.makedirs(self.output_root, exist_ok=True)
+        os.makedirs(self.output_root, exist_ok= True)
 
         self.list_data = []
         for txt_file in self.list_seqnames:
