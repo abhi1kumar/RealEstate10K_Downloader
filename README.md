@@ -22,21 +22,23 @@ Then, execute the following commands
 python3 generate_dataset.py test
 python3 generate_dataset.py train
 ```
-This downloads YouTube movies and extract frames which are needed.  Because of unkown reasons, `yt_dlp` fails to download and save movies. 
-In this case, sequence name is added to `failed_videos_{test, train}.txt`.   
+This downloads YouTube movies and extract frames which are needed.  
 
 ```bash
 ├── RealEstate10K
 │      ├── train
 │      └── test
 │
-├── videos
+├── videos_youtube
 │      ├── train
 │      └── test
 ```
 
 RealEstate10K(including images) is very large. Please be careful.    
 __Please use this at your own risk.__
+
+Because of unkown reasons, `yt_dlp` fails to download and save movies. 
+In this case, sequence name is added to `failed_videos_{test, train}.txt`.
 
 ## Visualizer
 
