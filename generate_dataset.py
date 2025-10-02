@@ -123,7 +123,7 @@ class DataDownloader:
         print("[INFO] Loading data list ... ", end="")
         self.dataroot = dataroot
         self.list_seqnames = sorted(glob.glob(dataroot + "/*.txt"))
-        self.output_root = "./videos/" + mode + "/"
+        self.output_root = "./videos_youtube/" + mode + "/"
         self.mode = mode
 
         os.makedirs(self.output_root, exist_ok= True)
