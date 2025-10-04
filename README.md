@@ -13,8 +13,9 @@ Download [RealEstate10K](https://google.github.io/realestate10k/download.html) t
 
 ```bash
 ├── RealEstate10K
-│      ├── train
-│      └── test
+│      └── pose_files
+│             ├── train
+│             └── test
 ```
 
 Then, execute the following commands
@@ -26,12 +27,12 @@ This downloads YouTube movies and extract frames which are needed.
 
 ```bash
 ├── RealEstate10K
-│      ├── train
-│      └── test
-│
-├── videos_youtube
-│      ├── train
-│      └── test
+│      ├── pose_files
+│      │      ├── train
+│      │      └── test
+│      └── videos_youtube
+│             ├── train
+│             └── test
 ```
 
 RealEstate10K(including images) is very large. Please be careful.    
