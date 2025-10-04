@@ -122,8 +122,8 @@ class DataDownloader:
     def __init__(self, dataroot, mode="test"):
         print("[INFO] Loading data list ... ", end="")
         self.dataroot = dataroot
-        self.list_seqnames = sorted(glob.glob(dataroot + "/*.txt"))
-        self.output_root = "./videos_youtube/" + mode + "/"
+        self.list_seqnames = sorted(glob.glob(dataroot + "/pose_files/" + mode + "/*.txt"))
+        self.output_root = dataroot + "/videos_youtube/" + mode + "/"
         self.mode = mode
 
         os.makedirs(self.output_root, exist_ok= True)
@@ -200,7 +200,7 @@ if __name__ == "__main__":
     assert sys.argv[1] in ["test", "train"], sys.argv[1]
     mode = sys.argv[1]
 
-    dataroot = "./RealEstate10K/" + mode
+    dataroot = "./RealEstate10K/"
     downloader = DataDownloader(dataroot, mode)
 
     downloader.show()
